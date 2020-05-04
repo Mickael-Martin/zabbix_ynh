@@ -105,3 +105,5 @@ fi
 ynh_script_progression --message="Reload new configuration" -w 33
 
 systemctl reload nginx
+
+ynh_script_progression --message="URL change operation completed !" --last
