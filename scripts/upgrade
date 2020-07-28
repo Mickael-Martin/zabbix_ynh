@@ -227,4 +227,3 @@ fi
 
 ynh_add_nginx_config
 systemctl reload nginx
-yunohost app ssowatconf
