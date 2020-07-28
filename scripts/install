@@ -378,13 +378,13 @@ yunohost app ssowatconf
 # Import Yunohost template
 #=================================================
 ynh_script_progression -m "Importing last template Yunohost in Zabbix" -w 5
-import_template
+#import_template
 
 #=================================================
 # Link Yunohost template to the ZAbbix Server Host
 #=================================================
 ynh_script_progression -m "Importing last template Yunohost in Zabbix" -w 5
-link_template
+#link_template
 
 #=================================================
 # disable default admin 
