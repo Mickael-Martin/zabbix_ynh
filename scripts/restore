@@ -161,9 +161,6 @@ fi
 systemctl reload nginx
 systemctl reload php7.0-fpm
 
-# Reload SSOwat config
-yunohost app ssowatconf
-
 #test if zabbix server is started
 check_proc_zabbixagent
 
