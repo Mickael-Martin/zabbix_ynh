@@ -100,7 +100,7 @@ install_zabbix_repo
 
 ynh_script_progression --message="Update and install dependencies" -w 5
 #ynh_package_update no need cause ynh_install_app_dependencies after
-ynh_install_app_dependencies snmptrapd jq zabbix-server-mysql zabbix-agent zabbix-frontend-php
+ynh_install_app_dependencies snmptrapd jq zabbix-server-mysql zabbix-agent zabbix-frontend-php php7.0-bcmath
 dpkg -i --force-confmiss /var/cache/apt/archives/zabbix-server-mysql*
 
 ynh_replace_string --match_string="# fr_FR.UTF-8 UTF-8" --replace_string="fr_FR.UTF-8 UTF-8" --target_file=/etc/locale.gen
