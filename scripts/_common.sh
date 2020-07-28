@@ -1,5 +1,17 @@
 #!/bin/bash
 
+# ============= FUTURE YUNOHOST HELPER =============
+# Delete a file checksum from the app settings
+#
+# $app should be defined when calling this helper
+#
+# usage: ynh_remove_file_checksum file
+# | arg: file - The file for which the checksum will be deleted
+ynh_delete_file_checksum () {
+	local checksum_setting_name=checksum_${1//[\/ ]/_}	# Replace all '/' and ' ' by '_'
+	ynh_app_setting_delete $app $checksum_setting_name
+}
+
 #Zabbix part
 #===================GET GUEST DEFAULT USER STATE==============
 #return 0 if enable, else 1
@@ -157,14 +169,10 @@ check_proc_zabbixagent(){
 }
 
 install_zabbix_repo(){
-    ynh_add_extra_apt_repos__3_path=$(find /var/cache/yunohost/ /etc/yunohost/apps/zabbix/ -name "ynh_add_extra_apt_repos__3" | tail -n 1)
-    source "$ynh_add_extra_apt_repos__3_path"
     ynh_install_extra_repo --repo="http://repo.zabbix.com/zabbix/4.4/debian $(lsb_release -sc) main" --key=https://repo.zabbix.com/zabbix-official-repo.key  --priority=999  --name=zabbix
 }
 
 remove_zabbix_repo(){
-    ynh_add_extra_apt_repos__3_path=$(find /var/cache/yunohost/ /etc/yunohost/apps/zabbix/ -name "ynh_add_extra_apt_repos__3" | tail -n 1)
-    source "$ynh_add_extra_apt_repos__3_path"
     ynh_remove_extra_repo --name=zabbix
 }
 
