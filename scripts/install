@@ -95,16 +95,6 @@ ynh_app_setting_set "$app" language "$language"
 ###		- Remove the section "REMOVE DEPENDENCIES" in the remove script
 ###		- As well as the section "REINSTALL DEPENDENCIES" in the restore script
 ###		- And the section "UPGRADE DEPENDENCIES" in the upgrade script
-ynh_script_progression --message="Remove Zabbix if already installed" -w 1
-ynh_package_autopurge zabbix*
-if [ -d /etc/zabbix ];then
-    ynh_secure_remove /etc/zabbix
-fi
-if [ -d /usr/share/zabbix ];then
-    ynh_secure_remove /usr/share/zabbix
-fi
-ynh_secure_remove /var/cache/apt/archives/zabbix-server-mysql*
-
 ynh_script_progression --message="Install Zabbix repository" -w 3
 install_zabbix_repo
 
