@@ -111,7 +111,7 @@ if [ -f "/etc/apt/sources.list.d/zabbix.list" ];then
 fi
 #
 patch if virtual package zabbix has old dependencies
-if [ "$(ynh_package_version --package=zabbix-ynh-deps)" -eq "3.2.2" ];then
+if [ "$(ynh_package_version --package=zabbix-ynh-deps)" = "3.2.2" ];then
     forceupdate=1
 fi
 
